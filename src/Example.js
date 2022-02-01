@@ -69,7 +69,6 @@ export default class extends React.Component {
                       this.setState({ highlightLinkIndexes: [] })
                     }}
                   />
-
                   <Text
                     x={18}
                     y={((node.y1 - node.y0) / 2)}
@@ -83,22 +82,6 @@ export default class extends React.Component {
 
                 </Group>
               ))}
-
-              {/*
-              <Group strokeOpacity={.2}>
-                {data.links.map((link, i) => (
-                  <LinkHorizontal
-                    key={`link-${i}`}
-                    data={link}
-                    source={d => [d.source.x1, d.y0]}
-                    target={d => [d.target.x0, d.y1]}
-                    strokeWidth={Math.max(1, link.width)}
-                    opacity={0.7}
-                    fill="none"
-                  />
-                ))}
-              </Group>
-              */}
 
               <Group>
                 {data.links.map((link, i) => (

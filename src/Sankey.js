@@ -16,7 +16,6 @@ export default function Sankey({
   className,
   data,
   size,
-
   nodeId,
   nodeAlign,
   nodeWidth,
@@ -25,7 +24,6 @@ export default function Sankey({
   extent,
   iterations,
   circularLinkGap,
-
   children,
   nodeComponent = DefaultNode,
   ...restProps
@@ -42,8 +40,6 @@ export default function Sankey({
 
   const sankeyData = sankey(data);
 
-  console.log('sankeyData', sankeyData);
-
   if (!!children) {
     return (
       <Group top={top} left={left} className={cx('vx-sankey', className)}>
@@ -51,19 +47,4 @@ export default function Sankey({
       </Group>
     );
   }
-
-  // TODO: Support no-child function as well (nodeComponent/linkComponent)
-
-  // return (
-  //   <Group top={top} left={left} className={cx('vx-sankey', className)}>
-  //     {nodeComponent &&
-  //       descendants.map((node, i) => {
-  //         return (
-  //           <Group key={`pack-node-${i}`}>
-  //             {React.createElement(nodeComponent, { node })}
-  //           </Group>
-  //         );
-  //       })}
-  //   </Group>
-  // );
 }

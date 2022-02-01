@@ -1,10 +1,10 @@
 export default {
   "nodes": [
-    { "node": 0, "name": "Steve Thorpe" },
-    { "node": 1, "name": "Education" },
-    { "node": 2, "name": "Employment" },
-    { "node": 3, "name": "Projects" },
-    { "node": 4, "name": "Skills" }
+    { "node": 0, "name": "Polkastarter" },
+    { "node": 1, "name": "Second Wallet" },
+    { "node": 2, "name": "Third Wallet" },
+    { "node": 3, "name": "HDDl" },
+    { "node": 4, "name": "Panckage Swap" }
   ],
   "links": [
     { "source": 0, "target": 1, "value": 5, "name": "BA" },
@@ -12,12 +12,6 @@ export default {
     { "source": 0, "target": 1, "value": 7, "name": "Ph.D (Sumbitted)" },
     { "source": 0, "target": 2, "value": 2, "name": "MHub" },
     { "source": 0, "target": 2, "value": 2, "Name": "Bertelsman Stuftung" },
-    {
-      "source": 0,
-      "target": 2,
-      "value": 4,
-      "name": "University of East London"
-    },
     { "source": 1, "target": 3, "value": 7, "name": "PhD Research" },
     { "source": 1, "target": 3, "value": 1, "name": "MA Research" },
     { "source": 1, "target": 3, "value": 1, "name": "BA Research" },
