@@ -1,13 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { render } from "react-dom";
+import Example from "./Example";
+import cvData from "./data/cv";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const App = () => (
+  <div>
+    <h2>Sankey</h2>
+    <Example data={cvData} width={960} height={500} />
+  </div>
 );
 
-reportWebVitals();
+
+
+
+render(<App />, document.getElementById("root"));

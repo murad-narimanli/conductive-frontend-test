@@ -1,4 +1,4 @@
-export  default  data =  [
+export const data =  [
     {
         Txhash: "0xec27a876d4d04366e23288fe9e7d1d40a08f11a332d9d5147a53493aca58d40e",
         Blockno: 12687074,
