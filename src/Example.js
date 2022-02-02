@@ -1,17 +1,12 @@
 import React from 'react';
 import { Group } from '@vx/group';
 import { Text } from '@vx/text';
-import {scaleSequential, interpolateCool } from 'd3-scale';
-import { extent } from 'd3-array';
 import { linkHorizontal } from 'd3-shape';
 import Sankey from './Sankey';
 
 const path = linkHorizontal()
   .source(d => [d.source.x1, d.y0])
   .target(d => [d.target.x0, d.y1]);
-
-
-const color = scaleSequential(interpolateCool);
 
 export default class extends React.Component {
   state = {
@@ -47,18 +42,13 @@ export default class extends React.Component {
         >
           {({ data }) => (
             <Group>
-              {
-                // Hack to set color domain after <Sankey> has set depth
-                color.domain(extent(data.nodes, d => d.depth))
-              }
-
               {data.nodes.map((node, i) => (
                 <Group top={node.y0} left={node.x0} key={`node-${i}`}>
                   <rect
                     id={`rect-${i}`}
                     width={node.x1 - node.x0}
                     height={node.y1 - node.y0}
-                    fill={color(node.depth)}
+                    fill={node.color}
                     opacity={0.5}
                     stroke="white"
                     strokeWidth={2}
