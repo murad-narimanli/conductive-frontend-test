@@ -36,6 +36,8 @@ const App = () => {
     const generateLinks = async (data) => {
         let obj = {}
         let nodes = []
+        let links = [];
+        let HODL = 0;
 
         for (const [key, value] of Object.entries(wallets)) {
             nodes.push({
@@ -46,8 +48,6 @@ const App = () => {
             });
         }
 
-        let links = [];
-        let HODL = 0;
         await data.forEach((entry, index) => {
             let From = entry.From
             let To = entry.To
@@ -64,7 +64,6 @@ const App = () => {
                 (FromPolkstarter && toPriWallet) ||
                 (FromPolkstarter && toPancake) ||
                 (FromPrimaryWallet && toPancake);
-
             if (mainConditions) {
                 UpdateLinks(From, To, Quantity, links)
             }
