@@ -9,15 +9,21 @@
     "@vx/hierarchy": "0.0.153",
     "@vx/shape": "0.0.153",
     "@vx/text": "0.0.153",
+    "axios": "^0.25.0",
+    "chroma-js": "^2.3.0",
+    "concurrently": "^7.0.0",
     "csvtojson": "^2.0.10",
-    "d3-sankey": "0.7.1",
+    "d3": "^7.3.0",
+    "d3-sankey": "^0.7.1",
     "d3-sankey-circular": "latest",
-    "d3-scale": "1.0.7",
-    "d3-shape": "latest",
+    "d3-scale": "^1.0.7",
+    "d3-shape": "^3.1.0",
+    "json-server": "^0.17.0",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@types/d3": "^7.1.0",
     "react-scripts": "1.0.0"
   },
   "scripts": {

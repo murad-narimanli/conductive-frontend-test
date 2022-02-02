@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
 import Example from "./Example";
-import {data} from "./data/data";
-
+import * as d3 from 'd3';
+import axios from "axios";
 
 const App = () => {
+    let url = 'http://localhost:8000/data'
     const [graphData , setGraphData] = useState({ nodes: [], links: [] },)
     const [numberOfTransactions , setNumberOfTransactions] = useState(0)
     const [waiting , setWaiting] = useState(false)
@@ -26,12 +27,19 @@ const App = () => {
     })
 
     useEffect(()=>{
-        generateLinks(data).then(r =>  {
-            console.log(r)
+        getData().then(()=>{
             setWaiting(true)
-            setGraphData(r)
         })
-    } , [data])
+    } , [])
+
+    const getData =  async () => {
+        await axios.get(url).then((res)=>{
+            generateLinks(res.data).then(r =>  {
+                console.log(r)
+                setGraphData(r)
+            })
+        })
+    }
 
     const generateLinks = async (data) => {
         let obj = {}
