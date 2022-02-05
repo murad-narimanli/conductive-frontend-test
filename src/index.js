@@ -1,37 +1,36 @@
 import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
-import SankeyChartComponent from "./SankeyChart";
 import axios from "axios";
-import cvData from "./data";
 import Example from "./Example";
 
 const App = () => {
+    let trigger = 1
     let url = 'http://localhost:8000/data'
     const [graphData , setGraphData] = useState({ nodes: [], links: [] },)
     const [numberOfTransactions , setNumberOfTransactions] = useState(0)
     const [waiting , setWaiting] = useState(false)
-    const [wallets , setWallets] = useState( {
+    const wallets = {
         Mint: "0x0000000000000000000000000000000000000000",
         "Primary Wallet": "0x72571d815dd31fbde52be0b9d7ffc8344aede616",
         "Other Wallet": "Other",
         HODL: "HODL",
         PancakeSwap: "0xd6d206f59cc5a3bfa4cc10bc8ba140ac37ad1c89",
         Polkastarter: "0xee62650fa45ac0deb1b24ec19f983a8f85b727ab",
-    })
-    const [colors , setNodeColors] = useState( {
+    }
+    const colors = {
         Mint: "blue",
         "Primary Wallet": "yellow",
         "Other Wallet": "purple",
         HODL: "green",
         PancakeSwap: "red",
         Polkastarter: "royalblue",
-    })
+    }
 
     useEffect(()=>{
         getData().then(()=>{
             setWaiting(true)
         })
-    } , [])
+    } , [trigger])
 
     const getData =  async () => {
         await axios.get(url).then((res)=>{
