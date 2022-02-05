@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
-import Example from "./Example";
-import * as d3 from 'd3';
+import SankeyChartComponent from "./SankeyChart";
 import axios from "axios";
+import cvData from "./data";
+import Example from "./Example";
 
 const App = () => {
     let url = 'http://localhost:8000/data'
@@ -47,19 +48,19 @@ const App = () => {
         let links = [];
         let HODL = 0;
 
-        for (const [key, value] of Object.entries(wallets)) {
+        Object.keys(wallets).forEach((s, i) =>{
             nodes.push({
-                index:value,
-                node: value,
-                name: key,
-                color: colors[key]
+                node: i,
+                name: s,
+                color: colors[s]
             });
-        }
+        })
 
         await data.forEach((entry, index) => {
             let From = entry.From
             let To = entry.To
             let Quantity = entry.Quantity
+            
             Quantity = Quantity.split(',').join('');
             let FromMint = (From === wallets.Mint);
             let FromPrimaryWallet = (From === wallets["Primary Wallet"]);
@@ -67,21 +68,38 @@ const App = () => {
             let toPriWallet = (To === wallets["Primary Wallet"]);
             let toPancake = (To === wallets.PancakeSwap);
             let toOtherWallets = (!toPriWallet && !toPancake);
-            let mainConditions =
+
+            let FromIndex =
+                FromMint ? 0
+                    : FromPrimaryWallet ? 1
+                        : (From === wallets["Other Wallet"]) ? 2
+                            : (From === wallets.HODL) ? 3
+                                : (From === wallets.PancakeSwap) ? 4
+                                    : FromPolkstarter ? 5 :  undefined
+
+            let ToIndex =
+                (To === wallets.Mint) ? 0
+                    : toPriWallet ? 1
+                        : toOtherWallets ? 2
+                            : (To === wallets.HODL) ? 3
+                                : toPancake ? 4
+                                    : (To === wallets.Polkastarter) ? 5 :  undefined
+
+                let mainConditions =
                 (FromMint && toPriWallet) ||
                 (FromPolkstarter && toPriWallet) ||
                 (FromPolkstarter && toPancake) ||
                 (FromPrimaryWallet && toPancake);
-            if (mainConditions) {
-                UpdateLinks(From, To, Quantity, links)
+            if (mainConditions &&  FromIndex && ToIndex) {
+                UpdateLinks(FromIndex, ToIndex, Quantity, links)
             }
             if (
                 (FromPolkstarter && toOtherWallets) ||
                 (FromPrimaryWallet && toOtherWallets)
             ) {
                 UpdateLinks(
-                    From,
-                    wallets["Other Wallet"],
+                    FromIndex,
+                    2,
                     Quantity,
                     links
                 );
@@ -96,8 +114,8 @@ const App = () => {
             }
             if (index === data.length - 1) {
                 UpdateLinks(
-                    wallets["Primary Wallet"],
-                    wallets.HODL,
+                   1,
+                    3,
                     HODL,
                     links
                 );
@@ -129,7 +147,7 @@ const App = () => {
     return (
         <div style={{marginTop:'130px'}}>
             {waiting ?
-                <Example data={graphData} width={960} height={500} />
+                <Example data={graphData}  width={960} height={500} />
                 : 'Loading...'
             }
         </div>
