@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
 import { Audio } from  'react-loader-spinner'
 
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "./style/css/react-spinner-loader.css";
 import './style/style.css'
 import './style/animate.css'
 import axios from "axios";
