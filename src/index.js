@@ -1,9 +1,16 @@
 import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
+import { Audio } from  'react-loader-spinner'
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import './style/style.css'
+import './style/animate.css'
 import axios from "axios";
-import Example from "./Example";
+import Example from "./Components/Example";
 
 const App = () => {
+    let [transactionsProcessed , setTransactionsProcessed] = useState(0)
+    let [totalQUIDD , setTotalQUIDD] = useState(0)
     let trigger = 1
     let url = 'https://conductive-frontend-task.herokuapp.com/api/data'
     const [graphData , setGraphData] = useState({ nodes: [], links: [] },)
@@ -143,14 +150,31 @@ const App = () => {
         } else {
             links[indexOfLink].value += Number(quantity);
         }
-        setNumberOfTransactions(numberOfTransactions+1)
+
+        setTransactionsProcessed(transactionsProcessed++);
+        setTotalQUIDD(totalQUIDD += +quantity)  ;
     }
 
     return (
-        <div style={{marginTop:'130px'}}>
+        <div>
             {waiting ?
-                <Example data={graphData}  width={960} height={500} />
-                : 'Loading...'
+                <div className={'main animated zoomIn'}>
+                    <div>{transactionsProcessed} transactions processed </div>
+                    <div>Total Value QUIDD {totalQUIDD}</div>
+                    <Example data={graphData}  width={960} height={500} />
+                    <section>
+                        <p>
+                            Developed by
+                            {' / '}<a href="https://www.linkedin.com/in/murad-n%C9%99rimanl%C4%B1-549389130/" target={'_blank'}>Murad Nərimanlı</a>
+                            {' / '}<a href="https://github.com/murad-narimanli" target={'_blank'}>Github</a>
+                            {' / '}<a href="https://murad-narimanli.github.io/cv" target={'_blank'}>Resume</a>
+                        </p>
+                        <p>
+                            For source code click <a href="https://github.com/murad-narimanli/conductive-frontend-test">Here</a>
+                        </p>
+                    </section>
+                </div>
+                : <Audio color="red" height={80} width={80} />
             }
         </div>
     );

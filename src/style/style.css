@@ -1,0 +1,22 @@
+body {
+  background: #f4f5f7;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+body .main {
+  font-weight: bold;
+  font-size: 20px;
+}
+body .main svg {
+  margin-top: 20px;
+  transform: translateX(100px);
+}
+body .main a {
+  text-decoration: none;
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

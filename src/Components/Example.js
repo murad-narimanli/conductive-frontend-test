@@ -49,11 +49,12 @@ export default class extends React.Component {
                                         width={node.x1 - node.x0}
                                         height={node.y1 - node.y0}
                                         fill={node.color}
-                                        opacity={0.5}
+                                        opacity={0.9}
                                         stroke="white"
                                         strokeWidth={2}
                                         onMouseOver={e => {
-                                            this.setState({ highlightLinkIndexes: [...node.sourceLinks.map(l => l.index), ...node.targetLinks.map(l => l.index) ] })
+                                            this.setState({
+                                                highlightLinkIndexes: [...node.sourceLinks.map(l => l.index), ...node.targetLinks.map(l => l.index) ] })
                                         }}
                                         onMouseOut={e => {
                                             this.setState({ highlightLinkIndexes: [] })
@@ -75,22 +76,25 @@ export default class extends React.Component {
 
                             <Group>
                                 {data.links.map((link, i) => (
-                                    <path
-                                        key={`link-${i}`}
-                                        d={path(link)}
-                                        // stroke='black'
-                                        stroke={this.state.highlightLinkIndexes.includes(i) ? 'red' : 'black'}
-                                        strokeWidth={Math.max(1, link.width)}
-                                        // opacity={0.2}
-                                        opacity={this.state.highlightLinkIndexes.includes(i) ? 0.5 : 0.15}
-                                        fill="none"
-                                        onMouseOver={e => {
-                                            this.setState({ highlightLinkIndexes: [i] })
-                                        }}
-                                        onMouseOut={e => {
-                                            this.setState({ highlightLinkIndexes: [] })
-                                        }}
-                                    />
+                                    <>
+                                        <path
+                                            style={{cursor:'pointer' , transition:'0.2s ease-in-out'}}
+                                            key={`link-${i}`}
+                                            d={path(link)}
+                                            // stroke='black'
+                                            stroke={this.state.highlightLinkIndexes.includes(i) ? 'red' : 'black'}
+                                            strokeWidth={Math.max(1, link.width)}
+                                            // opacity={0.2}
+                                            opacity={this.state.highlightLinkIndexes.includes(i) ? 0.7 : 0.15}
+                                            fill="none"
+                                            onMouseOver={e => {
+                                                this.setState({ highlightLinkIndexes: [i] })
+                                            }}
+                                            onMouseOut={e => {
+                                                this.setState({ highlightLinkIndexes: [] })
+                                            }}
+                                        />
+                                    </>
                                 ))}
                             </Group>
 

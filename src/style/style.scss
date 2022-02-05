@@ -1,0 +1,20 @@
+body{
+  background: #f4f5f7;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .main{
+    font-weight: bold;
+    font-size: 20px;
+    svg{
+      margin-top: 20px;
+      transform: translateX(100px);
+    }
+    a{
+      text-decoration: none;
+      color: red;
+    }
+  }
+}
