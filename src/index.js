@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
 import { Audio } from  'react-loader-spinner'
-
 import "./style/css/react-spinner-loader.css";
 import './style/style.css'
 import './style/css/animate.css'
@@ -14,7 +13,6 @@ const App = () => {
     let trigger = 1
     let url = 'https://conductive-frontend-task.herokuapp.com/api/data'
     const [graphData , setGraphData] = useState({ nodes: [], links: [] },)
-    const [numberOfTransactions , setNumberOfTransactions] = useState(0)
     const [waiting , setWaiting] = useState(false)
     const wallets = {
         Mint: "0x0000000000000000000000000000000000000000",
@@ -150,7 +148,6 @@ const App = () => {
         } else {
             links[indexOfLink].value += Number(quantity);
         }
-
         setTransactionsProcessed(transactionsProcessed++);
         setTotalQUIDD(totalQUIDD += +quantity)  ;
     }
@@ -179,8 +176,6 @@ const App = () => {
         </div>
     );
 }
-
-
 
 
 render(<App />, document.getElementById("root"));
