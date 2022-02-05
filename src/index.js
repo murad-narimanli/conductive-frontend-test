@@ -155,11 +155,15 @@ const App = () => {
     return (
         <div>
             {waiting ?
-                <div className={'main animated zoomIn'}>
-                    <div>{transactionsProcessed} transactions processed </div>
-                    <div>Total Value QUIDD {totalQUIDD}</div>
-                    <Example data={graphData}  width={960} height={500} />
-                    <section>
+                <div className={'main '}>
+                    <div className={'animated fadeInDown'}>
+                        <div>{transactionsProcessed} transactions processed </div>
+                        <div>Total Value QUIDD {totalQUIDD}</div>
+                    </div>
+                    <div className={'animated zoomIn'}>
+                        <Example  data={graphData}  width={960} height={500} />
+                    </div>
+                    <section className={'animated slideInUp'}>
                         <p>
                             Developed by
                             {' / '}<a href="https://www.linkedin.com/in/murad-n%C9%99rimanl%C4%B1-549389130/" target={'_blank'}>Murad Nərimanlı</a>
@@ -171,7 +175,7 @@ const App = () => {
                         </p>
                     </section>
                 </div>
-                : <Audio color="red" height={80} width={80} />
+                : <Audio  color="red" height={80} width={80} />
             }
         </div>
     );
