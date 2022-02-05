@@ -4,7 +4,7 @@ import { Audio } from  'react-loader-spinner'
 
 import "./style/css/react-spinner-loader.css";
 import './style/style.css'
-import './style/animate.css'
+import './style/css/animate.css'
 import axios from "axios";
 import Example from "./Components/Example";
 

@@ -3,11 +3,12 @@ body{
   display: flex;
   height: 100vh;
   justify-content: center;
+  font-family: sans-serif;
   align-items: center;
   text-align: center;
   .main{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     svg{
       margin-top: 20px;
       transform: translateX(100px);
