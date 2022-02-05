@@ -20,4 +20,16 @@ body .main a {
   color: red;
 }
 
+#tooltip {
+  background: rgba(0, 0, 0, 0.79);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 12px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  min-width: 180px;
+  z-index: 20000000;
+  font-size: 12px !important;
+}
+
 /*# sourceMappingURL=style.css.map */
