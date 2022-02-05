@@ -5,7 +5,7 @@ import Example from "./Example";
 
 const App = () => {
     let trigger = 1
-    let url = 'https://conductive-frontend-task.herokuapp.com/api'
+    let url = 'https://conductive-frontend-task.herokuapp.com/api/data'
     const [graphData , setGraphData] = useState({ nodes: [], links: [] },)
     const [numberOfTransactions , setNumberOfTransactions] = useState(0)
     const [waiting , setWaiting] = useState(false)
