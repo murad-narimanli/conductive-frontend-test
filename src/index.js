@@ -92,6 +92,9 @@ const App = () => {
             if (mainConditions &&  FromIndex && ToIndex) {
                 UpdateLinks(FromIndex, ToIndex, Quantity, links)
             }
+            if(FromMint && toPriWallet){
+                UpdateLinks(0, 1, Quantity, links)
+            }
             if (
                 (FromPolkstarter && toOtherWallets) ||
                 (FromPrimaryWallet && toOtherWallets)
