@@ -19,6 +19,10 @@ body .main a {
   text-decoration: none;
   color: red;
 }
+body .main section {
+  position: relative;
+  z-index: -1 !important;
+}
 
 #tooltip {
   background: rgba(0, 0, 0, 0.79);
@@ -28,7 +32,7 @@ body .main a {
   color: white;
   transition: 0.2s ease-in-out;
   min-width: 180px;
-  z-index: 20000000;
+  z-index: 3875820019684212735;
   font-size: 12px !important;
 }
 

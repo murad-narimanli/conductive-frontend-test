@@ -17,8 +17,10 @@ export default class extends React.Component {
         let tooltip = document.getElementById("tooltip");
         tooltip.innerHTML = `
            <div>
-            <p>  ${link.source.name} -> ${link.target.name} </p>
-            <p> Weight ${link.width.toFixed(2)} </p>
+            <p> ${link.source.name} -> ${link.target.name} </p>
+            <p> Chart Weight ${link.width.toFixed(2)} </p>
+            <p> QUIDD ${link.value.toFixed(2)} </p>
+            <p> Costs $ ${(link.value * 0.6153).toFixed(2)} </p>
           </div>
         `
         tooltip.style.visibility = 'visible';

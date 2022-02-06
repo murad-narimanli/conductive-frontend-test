@@ -17,6 +17,10 @@ body{
       text-decoration: none;
       color: red;
     }
+    section{
+      position: relative;
+      z-index: -1 !important;
+    }
   }
 }
 
@@ -28,6 +32,6 @@ body{
   color: white;
   transition: 0.2s ease-in-out;
   min-width:180px;
-  z-index: 20000000;
+  z-index: 999999999999999999999;
   font-size: 12px !important;
 }
