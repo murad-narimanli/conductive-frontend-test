@@ -21,7 +21,7 @@ body .main a {
 }
 body .main section {
   position: relative;
-  z-index: -1 !important;
+  z-index: 0;
 }
 
 #tooltip {
@@ -32,7 +32,7 @@ body .main section {
   color: white;
   transition: 0.2s ease-in-out;
   min-width: 180px;
-  z-index: 3875820019684212735;
+  z-index: 9999999;
   font-size: 12px !important;
 }
 

@@ -19,7 +19,7 @@ body{
     }
     section{
       position: relative;
-      z-index: -1 !important;
+      z-index: 0;
     }
   }
 }
@@ -32,6 +32,6 @@ body{
   color: white;
   transition: 0.2s ease-in-out;
   min-width:180px;
-  z-index: 999999999999999999999;
+  z-index: 9999999;
   font-size: 12px !important;
 }
