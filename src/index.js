@@ -160,7 +160,7 @@ const App = () => {
                         <div>{transactionsProcessed} transactions processed </div>
                         <div>Total Value QUIDD {totalQUIDD}</div>
                     </div>
-                    <div className={'animated zoomIn'}>
+                    <div className={'animated example zoomIn'}>
                         <Example  data={graphData}  width={960} height={500} />
                     </div>
                     <section className={'animated slideInUp'}>

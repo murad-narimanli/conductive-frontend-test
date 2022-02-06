@@ -11,6 +11,10 @@ body .main {
   font-weight: bold;
   font-size: 18px;
 }
+body .main .example {
+  position: relative;
+  z-index: 10;
+}
 body .main svg {
   margin-top: 20px;
   transform: translateX(100px);
@@ -18,10 +22,6 @@ body .main svg {
 body .main a {
   text-decoration: none;
   color: red;
-}
-body .main section {
-  position: relative;
-  z-index: 0;
 }
 
 #tooltip {
@@ -32,7 +32,7 @@ body .main section {
   color: white;
   transition: 0.2s ease-in-out;
   min-width: 180px;
-  z-index: 9999999;
+  z-index: 99999999;
   font-size: 12px !important;
 }
 
